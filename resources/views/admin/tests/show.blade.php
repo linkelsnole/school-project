@@ -45,7 +45,7 @@
 </style>
 
 <div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Header -->
+
     <div class="mb-8">
         <div class="flex justify-between items-start mb-4">
             <div>
@@ -77,7 +77,7 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Left Column - Settings -->
+
         <div class="lg:col-span-1">
             <div class="bg-white border border-gray-200 rounded-lg">
                 <div class="px-6 pt-4  border-gray-200">
@@ -88,28 +88,28 @@
                         @csrf
                         @method('PUT')
 
-                        <!-- Title -->
+
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Название</label>
                             <input type="text" name="title" value="{{ $test->title }}" required
                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
 
-                        <!-- Code -->
+
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Код (URL)</label>
                             <input type="text" name="code" value="{{ $test->code }}" readonly
                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-gray-50 text-gray-600 cursor-not-allowed">
                         </div>
 
-                        <!-- Description -->
+
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Описание</label>
                             <textarea name="description" rows="3"
                                       class="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">{{ $test->description }}</textarea>
                         </div>
 
-                        <!-- Status -->
+
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Статус</label>
                             <select name="status" required
@@ -119,7 +119,7 @@
                             </select>
                         </div>
 
-                        <!-- Save Button -->
+
                         <div class="pt-3 border-t border-gray-100">
                             <button type="submit"
                                     style="background-color: #101828"
@@ -131,7 +131,7 @@
                         </div>
                     </form>
 
-                    <!-- Delete -->
+
                     <div class="pt-4 mt-4 border-t border-gray-100">
                         <form action="{{ route('admin.tests.destroy', $test) }}" method="POST"
                               onsubmit="return confirm('Удалить тест? Все вопросы и результаты будут потеряны.')">
@@ -146,7 +146,7 @@
                 </div>
             </div>
 
-            <!-- Statistics -->
+
             <div class="bg-white border border-gray-200 rounded-lg mt-6">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <h3 class="text-lg font-medium text-gray-900">Статистика</h3>
@@ -256,12 +256,12 @@
                                     </div>
                                 </div>
 
-                                <!-- Question Options -->
+
                                 @if($question->question_type !== 'text' && $question->options && $question->options->count() > 0)
                                 <div class="bg-gray-50 rounded-lg  p-4">
                                     <h5 class="text-sm font-medium text-gray-700 mb-3">Варианты ответов:</h5>
                                     @if($question->question_type === 'scale')
-                                        <!-- Шкала - варианты в строку -->
+
                                         <div class="flex flex-wrap gap-2">
                                             @foreach($question->options as $option)
                                             <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-md border border-gray-200">
@@ -271,7 +271,7 @@
                                             @endforeach
                                         </div>
                                     @else
-                                        <!-- Обычные варианты - в колонку -->
+
                                         <div class="space-y-2">
                                             @foreach($question->options as $option)
                                             <div class="flex items-center justify-between bg-white px-3 py-2 rounded-md border border-gray-200">
@@ -328,14 +328,14 @@
                     <input type="hidden" id="questionId" name="question_id">
                     <input type="hidden" id="formMethod" name="_method">
                     <div class="space-y-6">
-                        <!-- Question Text -->
+
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Текст вопроса *</label>
                             <textarea id="questionTextInput" name="question_text" required rows="3" placeholder="Введите текст вопроса..."
                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
                         </div>
 
-                        <!-- Question Type -->
+
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Тип вопроса *</label>
                             <div class="relative">
@@ -395,7 +395,7 @@
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
+
                         <div class="flex gap-3 pt-4 border-t border-gray-200">
                             <button type="submit" id="submitButton"
                                     style="background-color: #101828"
@@ -415,7 +415,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно быстрого добавления вопросов -->
+
     <div id="bulkQuestionBuilderModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white rounded-lg w-full max-w-4xl mx-4 modal-scroll">
             <div class="p-6 pb-3  modal-header-sticky">
@@ -436,7 +436,7 @@
                             </div>
 
                             <div class="space-y-4">
-                                <!-- Текст вопроса -->
+
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Текст вопроса *</label>
                                     <textarea
@@ -447,7 +447,7 @@
                                         placeholder="Введите текст вопроса"></textarea>
                                 </div>
 
-                                <!-- Тип вопроса -->
+
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Тип вопроса *</label>
                                     <div class="relative">
@@ -501,7 +501,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Варианты ответов -->
+
                                 <div x-show="question.type !== 'text'">
                                     <label class="block text-sm font-medium text-gray-700 mb-2">Варианты ответов</label>
                                     <div class="space-y-3">

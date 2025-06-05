@@ -45,7 +45,7 @@
                 </a>
             </div>
         @else
-            <!-- Форма с данными студента -->
+
             <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
                 <h2 class="text-xl font-bold text-gray-800 mb-6">Данные для прохождения теста</h2>
 
@@ -83,7 +83,7 @@
                 </button>
             </div>
 
-            <!-- Форма теста (скрыта изначально) -->
+
             <div id="testContainer" class="hidden">
                 <form id="testForm" class="bg-white rounded-lg shadow-lg p-8">
                     @csrf
@@ -232,7 +232,7 @@
     </div>
 </div>
 
-<!-- Модальное окно -->
+
 <div id="customModal" class="fixed inset-0 bg-black/85 hidden z-50 flex items-center justify-center p-4 transition-all duration-300 ease-out opacity-0">
     <div id="customModalContent" class="bg-white shadow-lg rounded-lg max-w-md w-full transform scale-95 transition-all duration-300 ease-out">
         <div class="p-6">

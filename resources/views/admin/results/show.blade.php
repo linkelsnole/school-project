@@ -12,7 +12,7 @@
             </a>
         </div>
 
-        <!-- Информация об ученике -->
+
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
 
 
@@ -58,7 +58,7 @@
         </div>
 
 
-        <!-- Ответы ученика -->
+
         <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h3 class="text-2xl font-bold text-gray-800 mb-8">Ответы ученика</h3>
 
@@ -277,7 +277,7 @@
                     Все результаты ученика
                 </a>
 
-                <!-- Просмотр всех результатов этого теста -->
+
                 <a href="{{ route('admin.index', ['test_code' => $result->test_code]) }}"
                    class="hover:bg-gray-700 text-white px-4 py-2 rounded-md font-medium transition-all" style="background-color: #724B73;">
                     Все результаты теста
@@ -285,7 +285,7 @@
             </div>
         </div>
 
-        <!-- Другие тесты этого ученика -->
+
         @php
             $otherResults = $result->student->testResults()
                 ->where('id', '!=', $result->id)

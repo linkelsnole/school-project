@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-8 max-w-7xl">
-    <!-- Page Header -->
+
     <div class="mb-8">
         <div class="flex items-center justify-between mb-6">
             <div className="space-y-1">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <!-- Create Button -->
+
         <div class="mb-6">
             <button onclick="openCreateTestModal()" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-[#724B73] cursor-pointer" style="color: white;">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -30,7 +30,7 @@
             </button>
         </div>
 
-        <!-- Success Message -->
+
         @if(session('success'))
             <div class="rounded-lg border-gray-200 bg-green-50 p-4 text-green-800 text-sm mb-6">
                 <div class="flex items-center">
@@ -43,12 +43,12 @@
         @endif
     </div>
 
-    <!-- Tests Grid -->
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse($tests as $test)
             <div class="rounded-lg bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
                 <div class="p-6 flex flex-col flex-grow">
-                    <!-- Card Header -->
+
                     <div class="flex items-start justify-between mb-4">
                         <h3 class="text-lg font-semibold leading-none tracking-tight">{{ $test->title }}</h3>
                         <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium {{ $test->status === 'active' ? 'bg-green-100 text-green-700 border border-gray-200' : 'bg-gray-100 text-gray-700 border border-gray-200' }}">
@@ -56,7 +56,7 @@
                         </span>
                     </div>
 
-                    <!-- Test Details -->
+
                     <div class="space-y-2 mb-4 text-sm text-muted-foreground">
                         <div class="flex items-center justify-between">
                             <span>Код:</span>
@@ -68,52 +68,52 @@
                         </div>
                     </div>
 
-                    <!-- Description -->
+
                     <div class="flex-grow">
-                        @if($test->description)
-                            <p class="text-sm text-muted-foreground mb-4 line-clamp-3">{{ $test->description }}</p>
+                    @if($test->description)
+                        <p class="text-sm text-muted-foreground mb-4 line-clamp-3">{{ $test->description }}</p>
+                    @endif
+                    </div>
+
+
+                    <div class="mt-auto">
+                    <div class="flex gap-2 mb-4">
+                        <a href="{{ route('admin.tests.show', $test) }}"
+                           class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 flex-1" style="background-color: #101828; color: white;" onmouseover="this.style.backgroundColor='#1f2937'" onmouseout="this.style.backgroundColor='#101828'">
+                            Редактировать
+                        </a>
+
+                        @if($test->status === 'active')
+                            <a href="/tests/{{ $test->code }}" target="_blank"
+                               class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100 h-9 px-3">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                Просмотр
+                            </a>
                         @endif
                     </div>
 
-                    <!-- Action Buttons -->
-                    <div class="mt-auto">
-                        <div class="flex gap-2 mb-4">
-                            <a href="{{ route('admin.tests.show', $test) }}"
-                               class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 flex-1" style="background-color: #101828; color: white;" onmouseover="this.style.backgroundColor='#1f2937'" onmouseout="this.style.backgroundColor='#101828'">
-                                Редактировать
-                            </a>
 
-                            @if($test->status === 'active')
-                                <a href="/tests/{{ $test->code }}" target="_blank"
-                                   class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100 h-9 px-3">
-                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                                    </svg>
-                                    Просмотр
-                                </a>
-                            @endif
-                        </div>
-
-                        <!-- Footer Actions -->
                         <div class="pt-4 border-t border-gray-200 flex justify-end items-center">
-                            <form action="{{ route('admin.tests.destroy', $test) }}" method="POST"
-                                  onsubmit="return confirm('Вы уверены, что хотите удалить этот тест? Все вопросы и результаты будут удалены!')"
-                                  class="inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-destructive transition-colors">
-                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                    </svg>
-                                    Удалить
-                                </button>
-                            </form>
+                        <form action="{{ route('admin.tests.destroy', $test) }}" method="POST"
+                              onsubmit="return confirm('Вы уверены, что хотите удалить этот тест? Все вопросы и результаты будут удалены!')"
+                              class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-destructive transition-colors">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                                Удалить
+                            </button>
+                        </form>
                         </div>
                     </div>
                 </div>
             </div>
         @empty
-            <!-- Empty State -->
+
             <div class="col-span-full">
                 <div class="rounded-lg bg-card text-card-foreground shadow-sm p-12 text-center">
                     <div class="mx-auto w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
@@ -135,7 +135,7 @@
         @endforelse
     </div>
 
-    <!-- Create Test Modal -->
+
     <div id="createTestModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white rounded-lg p-6" style="width: 500px; max-width: 90vw;">
             <h3 class="text-lg font-medium text-gray-900 mb-4">Создать новый тест</h3>

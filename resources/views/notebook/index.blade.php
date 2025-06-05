@@ -94,20 +94,20 @@
                 </div>
             </div>
 
-            <!-- Карточка "Контакты агрегаторов" -->
+
             <div class="bg-white shadow-sm rounded-lg">
                 <div class="p-6">
                     <div class="flex items-center justify-between">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 mb-2">Контакты агрегаторов</h3>
                             <p class="text-sm text-gray-600 mb-4 md:mr-20">Получите контактную информацию агрегаторов для поиска работы и стажировок</p>
-                            <a href="#"
-                               class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gray-900 text-white hover:bg-gray-800 h-10 px-4 py-2">
+                            <button type="button"
+                                    class="contacts-open-btn inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gray-900 text-white hover:bg-gray-800 h-10 px-4 py-2">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                                 </svg>
                                 Открыть контакты
-                            </a>
+                            </button>
                         </div>
                         <div class="h-16 w-16 bg-gray-100 rounded-lg flex items-center justify-center">
                             <svg class="h-8 w-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,10 +183,81 @@
     </div>
 @endforeach
 
+
+
+<div id="contacts-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 ease-in-out"></div>
+
+
+<div id="contacts-sheet" class="fixed inset-y-0 right-0 z-50 h-full w-3/4 border-l bg-white shadow-lg transition-transform duration-300 ease-in-out transform translate-x-full sm:max-w-lg">
+    <div class="flex h-full flex-col">
+
+        <div class="flex items-center justify-between p-6 pb-0">
+            <div class="space-y-1">
+                <h2 class="text-lg font-semibold text-gray-900">Образовательные ресурсы</h2>
+                <p class="text-sm text-gray-600">Подобрать образовательное учреждение помогут эти ресурсы</p>
+            </div>
+            <button type="button" class="contacts-close-btn rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 disabled:pointer-events-none">
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                <span class="sr-only">Закрыть</span>
+            </button>
+        </div>
+
+
+        <div class="flex-1 overflow-y-auto p-6">
+            <div class="space-y-6">
+
+                <div class="space-y-4 rounded-lg border border-gray-200 p-4">
+                    <div class="space-y-2">
+                        <h3 class="text-base font-semibold text-gray-900">Полный перечень колледжей Ленинградской области</h3>
+                        <p class="text-sm text-gray-600">Найдешь здесь:</p>
+                    </div>
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex-shrink-0">
+                            <img src="{{ asset('images/qr-listColleges.png') }}" alt="QR код списка колледжей" class="h-25 w-25 rounded border">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="space-y-4 rounded-lg border border-gray-200 p-4">
+                    <div class="space-y-2">
+                        <h3 class="text-base font-semibold text-gray-900">Все образовательные учреждения страны</h3>
+                        <p class="text-sm text-gray-600">Ресурс, на котором представлены все образовательные учреждения страны, в том числе и Ленинградской области</p>
+                    </div>
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex-shrink-0">
+                            <img src="{{ asset('images/qr-allColleges.png') }}" alt="QR код всех колледжей" class="h-25 w-25 rounded border">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="space-y-4 rounded-lg border border-gray-200 p-4">
+                    <div class="space-y-2">
+                        <h3 class="text-base font-semibold text-gray-900">Крупнейший каталог ВУЗов России</h3>
+                        <p class="text-sm text-gray-600">Каталог ВУЗов, специальностей, профессий, материалов на тему высшего образования</p>
+                    </div>
+                    <div class="flex items-center justify-between gap-4">
+                        <div class="flex-shrink-0">
+                            <img src="{{ asset('images/qr-catalogRussia.png') }}" alt="QR код каталога ВУЗов" class="h-25 w-25 rounded border">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const openButtons = document.querySelectorAll('.modal-open-btn');
     const closeButtons = document.querySelectorAll('.modal-close-btn');
+    const contactsOpenBtn = document.querySelector('.contacts-open-btn');
+    const contactsCloseBtn = document.querySelector('.contacts-close-btn');
+    const contactsOverlay = document.getElementById('contacts-overlay');
+    const contactsSheet = document.getElementById('contacts-sheet');
 
     openButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -238,6 +309,55 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    });
+
+
+    function openContactsSheet() {
+        if (contactsOverlay && contactsSheet) {
+
+            contactsOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+
+
+            setTimeout(() => {
+                contactsOverlay.classList.add('opacity-100');
+                contactsSheet.classList.remove('translate-x-full');
+            }, 10);
+        }
+    }
+
+    function closeContactsSheet() {
+        if (contactsOverlay && contactsSheet) {
+
+            contactsOverlay.classList.remove('opacity-100');
+            contactsSheet.classList.add('translate-x-full');
+
+
+            setTimeout(() => {
+                contactsOverlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+    }
+
+    if (contactsOpenBtn) {
+        contactsOpenBtn.addEventListener('click', openContactsSheet);
+    }
+
+    if (contactsCloseBtn) {
+        contactsCloseBtn.addEventListener('click', closeContactsSheet);
+    }
+
+
+    if (contactsOverlay) {
+        contactsOverlay.addEventListener('click', closeContactsSheet);
+    }
+
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && contactsOverlay && !contactsOverlay.classList.contains('hidden')) {
+            closeContactsSheet();
+        }
     });
 });
 </script>

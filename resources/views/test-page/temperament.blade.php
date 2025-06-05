@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mx-auto px-4 py-8">
     <div class="max-w-4xl mx-auto">
-        <!-- Кнопка назад -->
+
         <div class="mb-6">
             <a href="javascript:history.back()"
                class="inline-flex items-center text-gray-600 hover:text-gray-800 font-medium transition-all">
@@ -16,7 +16,7 @@
             </a>
         </div>
 
-        <!-- Заголовок теста -->
+
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <div class="text-center mb-6">
                 <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <!-- Форма ввода данных ученика -->
+
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <h2 class="text-lg font-semibold text-gray-800 mb-4">Ваши данные</h2>
 
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <!-- Тест -->
+
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
             <h2 class="text-lg font-semibold text-gray-800 mb-6">ТЕСТ «ФОРМУЛА ТЕМПЕРАМЕНТА» (А. БЕЛОВА)</h2>
             <p class="text-gray-600 mb-6">Внимательно прочитайте список свойств, присущий тому или иному темпераменту, и отметьте "Да", если свойство вам присуще, и "Нет", если это свойство у вас не выражено.</p>
@@ -70,7 +70,7 @@
                 <input type="hidden" id="testCode" value="{{ $testData['code'] }}">
                 <input type="hidden" id="testTitle" value="{{ $testData['title'] }}">
 
-                <!-- Флегматик -->
+
                 <div class="border-l-4 border-blue-500 pl-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">Флегматик</h3>
                     <div class="space-y-3">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
 
-                <!-- Кнопка отправки -->
+
                 <div class="text-center pt-6">
                     <button type="submit"
                             id="submitBtn"

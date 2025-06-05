@@ -4,12 +4,12 @@
 
 @section('content')
 <div class="min-h-screen bg-gray-50/50">
-    <!-- Header -->
 
 
-    <!-- Main Content -->
+
+
     <main class="max-w-7xl mx-auto px-6 py-8">
-        <!-- Page Header -->
+
         <div class="flex items-center justify-between mb-8">
             <div>
                 <h1 class="text-2xl font-semibold text-gray-900">Результаты тестов</h1>
@@ -26,7 +26,7 @@
             </form>
         </div>
 
-        <!-- Search Form -->
+
         <div class="rounded-lg border border-gray-200 bg-white shadow-sm mb-8">
             <div class="p-6">
                 <form method="GET" action="{{ route('admin.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6" id="searchForm">
@@ -192,7 +192,7 @@
             </div>
         </div>
 
-        <!-- Results Table -->
+
         <div class="rounded-lg border border-gray-200 bg-white shadow-sm">
             <div class="p-0">
                 <div class="border-b border-gray-100">
@@ -284,7 +284,7 @@
                     </div>
                 </div>
 
-                <!-- Pagination -->
+
                 @if($results->hasPages())
                     <div class="flex items-center justify-between px-6 py-4">
                         {{ $results->withQueryString()->links() }}
@@ -295,7 +295,7 @@
     </main>
 </div>
 
-<!-- Модальное окно подтверждения удаления -->
+
 <div id="deleteModal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center p-4 transition-all duration-300 ease-out opacity-0">
     <div id="deleteModalContent" class="bg-white shadow-lg rounded-lg max-w-md w-full transform scale-95 transition-all duration-300 ease-out">
         <div class="p-6">
@@ -359,7 +359,7 @@
     z-index: 1001 !important;
 }
 
-/* Заголовок календаря */
+
 .flatpickr-months {
     position: relative !important;
     display: flex !important;

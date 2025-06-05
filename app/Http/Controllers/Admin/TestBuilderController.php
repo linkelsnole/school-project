@@ -328,22 +328,22 @@ class TestBuilderController extends Controller
             }
         } else {
 
-            if (in_array($request->question_type, ['radio', 'checkbox'])) {
-                TestQuestionOption::create([
-                    'question_id' => $question->id,
-                    'option_text' => 'Да',
-                    'option_value' => 'yes',
-                    'weight' => 1,
-                    'order_index' => 1
-                ]);
+        if (in_array($request->question_type, ['radio', 'checkbox'])) {
+            TestQuestionOption::create([
+                'question_id' => $question->id,
+                'option_text' => 'Да',
+                'option_value' => 'yes',
+                'weight' => 1,
+                'order_index' => 1
+            ]);
 
-                TestQuestionOption::create([
-                    'question_id' => $question->id,
-                    'option_text' => 'Нет',
-                    'option_value' => 'no',
-                    'weight' => 0,
-                    'order_index' => 2
-                ]);
+            TestQuestionOption::create([
+                'question_id' => $question->id,
+                'option_text' => 'Нет',
+                'option_value' => 'no',
+                'weight' => 0,
+                'order_index' => 2
+            ]);
             } elseif ($request->question_type === 'scale') {
                 for ($i = 1; $i <= 5; $i++) {
                     TestQuestionOption::create([
